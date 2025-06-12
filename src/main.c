@@ -6,24 +6,27 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:17:57 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/12 17:02:31 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/13 00:23:38 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-int	main(void)
+int	main(int argc, char **argv)
 {
-	t_stack a;
+	char	**arr;
+	t_stack	a;
+
 	init_stack(&a);
-
-	stack_push_top(&a, 2);
-	stack_push_bottom(&a, 3);
+	if(argc == 2)
+	{
+		arr = ft_split(argv[1], ' ');
+		if (!arr)
+			return (0);
+		bulid_stack_from_args(&a, arr);
+	}
+	else
+		bulid_stack_from_args(&a, argv + 1);
 	print_stack(&a);
-	t_node *n1 = pop_top(&a);
-	t_node *n2 = pop_bottom(&a);
-
-	printf("n1: %i\n", n1->data);
-	printf("n2: %i\n", n2->data);
+	free_stack(&a);
 }

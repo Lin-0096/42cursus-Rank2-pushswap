@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 13:28:55 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/12 17:03:47 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/13 00:12:36 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,23 +54,4 @@ t_node	*pop_bottom(t_stack *stack)
 	tmp->prev = NULL;
 	stack->size--;
 	return (tmp);
-}
-//for debug
-void	print_stack(t_stack *stack)
-{
-	t_node *current;
-
-	if (!stack || stack->size == 0)
-	{
-		printf("empty stack\n");
-		return ;
-	}
-	printf("size=%i\n", stack->size);
-	current = stack->top;
-	while (current)
-	{
-		printf("->%d", current->data);
-		current = current->next;
-	}
-	printf("\n");
 }

@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_stack.c                                      :+:      :+:    :+:   */
+/*   utils_push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 10:36:20 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/12 16:49:59 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/13 00:10:41 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	init_stack(t_stack *stack)
-{
-	if (!stack)
-		return ;
-	stack->size = 0;
-	stack->top = NULL;
-	stack->bottom = NULL;
-}
 
 t_node	*create_node(int value)
 {
