@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:27:21 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/12 14:19:49 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/13 11:18:58 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdarg.h> //ft_printf
 # include <unistd.h>
 # include <stdint.h>
-
 
 # define HEX_LOWER "0123456789abcdef"
 # define HEX_UPPER "0123456789ABCDEF"
@@ -63,6 +62,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(const char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	ft_free_arr(char **arr);
 
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
@@ -82,11 +82,11 @@ size_t	ft_strlen_gnl(char *str);
 char	*ft_strchr_gnl(char *stash, int c);
 
 //ft_printf
-int	ft_printf(const char *format, ...);
-int	write_char(char c);
-int	write_str(const char *s);
-int	write_int(long n);
-int	write_uint_base(uintptr_t n, const char *hex, uintptr_t base);
-int	write_pointer(void *ptr, const char *hex);
+int		ft_printf(const char *format, ...);
+int		write_char(char c);
+int		write_str(const char *s);
+int		write_int(long n);
+int		write_uint_base(uintptr_t n, const char *hex, uintptr_t base);
+int		write_pointer(void *ptr, const char *hex);
 
 #endif

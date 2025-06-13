@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 13:28:55 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/13 00:12:36 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/13 11:09:10 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_node	*pop_top(t_stack *stack)
 {
-	t_node *tmp;
+	t_node	*tmp;
 
 	if (!stack || stack->size == 0)
 		return (NULL);
@@ -36,9 +36,9 @@ t_node	*pop_top(t_stack *stack)
 
 t_node	*pop_bottom(t_stack *stack)
 {
-	t_node *tmp;
+	t_node	*tmp;
 
-	if(!stack || stack->size == 0)
+	if (!stack || stack->size == 0)
 		return (NULL);
 	tmp = stack->bottom;
 	if (stack->size == 1)

@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 10:36:20 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/13 00:10:41 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/13 14:45:57 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,18 @@ t_node	*create_node(int value)
 	t_node	*new;
 
 	new = malloc(sizeof(t_node));
-	if(!new)
+	if (!new)
 		return (NULL);
 	new->data = value;
 	new->prev = NULL;
 	new->next = NULL;
-	return(new);
+	return (new);
 }
 
-void	stack_push_bottom(t_stack *stack, int value)
+int	stack_push_bottom(t_stack *stack, t_node *new)
 {
-	t_node	*new;
-
-	if(!stack)
-		return ;
-	new = create_node(value);
-	if(!new)
-		return ;
+	if (!stack || !new)
+		return (0);
 	if (stack->size == 0)
 	{
 		stack->top = new;
@@ -46,17 +41,13 @@ void	stack_push_bottom(t_stack *stack, int value)
 		stack->bottom = new;
 	}
 	stack->size++;
+	return (1);
 }
 
-void	stack_push_top(t_stack *stack, int value)
+int	stack_push_top(t_stack *stack, t_node *new)
 {
-	t_node	*new;
-
-	if(!stack)
-		return ;
-	new = create_node(value);
-	if (!new)
-		return ;
+	if (!stack || !new)
+		return (0);
 	if (stack->size == 0)
 	{
 		stack->top = new;
@@ -69,4 +60,5 @@ void	stack_push_top(t_stack *stack, int value)
 		stack->top = new;
 	}
 	stack->size++;
+	return (1);
 }

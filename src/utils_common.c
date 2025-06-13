@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 00:09:05 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/13 00:23:22 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/13 11:27:01 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	init_stack(t_stack *stack)
 //for debug!!
 void	print_stack(t_stack *stack)
 {
-	t_node *current;
+	t_node	*current;
 
 	if (!stack || stack->size == 0)
 	{
@@ -43,13 +43,13 @@ void	print_stack(t_stack *stack)
 
 void	free_stack(t_stack *stack)
 {
-	t_node *tmp;
-	t_node *next;
+	t_node	*tmp;
+	t_node	*next;
 
-	if(!stack || stack->size == 0)
+	if (!stack || stack->size == 0)
 		return ;
 	tmp = stack->top;
-	while(!tmp)
+	while (tmp)
 	{
 		next = tmp->next;
 		free(tmp);

@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 17:24:53 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/13 00:22:01 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/13 11:47:42 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	get_digits(char *str, int *i, int sign, int *error)
 	long	result;
 
 	result = 0;
-	while(str[*i] >= '0' && str[*i]<= '9') //pass in the address
+	while (str[*i] >= '0' && str[*i]<= '9')//pass in the address
 	{
 		result = result * 10 + (str[*i] - '0');
 		if (result * sign < INT_MIN || result * sign > INT_MAX)
@@ -49,7 +49,7 @@ static int	read_number(char *str, int *error)
 		return (0);
 	}
 	result = get_digits(str, &i, sign, error);
-	if(*error == 1)
+	if (*error == 1)
 		return (0);
 	if (str[i] != '\0')
 	{
@@ -61,23 +61,24 @@ static int	read_number(char *str, int *error)
 
 static int	is_dup(t_stack *a, int value)
 {
-	t_node *cur;
+	t_node	*cur;
 
 	cur = a->top;
-	while(cur)
+	while (cur)
 	{
-		if(cur->data == value)
+		if (cur->data == value)
 			return (1);
 		cur = cur->next;
 	}
 	return (0);
 }
 
-int	bulid_stack_from_args(t_stack *a, char **argv)
+int	build_stack_from_args(t_stack *a, char **argv)
 {
-	int	i;
-	int	value;
-	int	error;
+	int		i;
+	int		value;
+	int		error;
+	t_node	*node;
 
 	i = 0;
 	while (argv[i])
@@ -85,9 +86,12 @@ int	bulid_stack_from_args(t_stack *a, char **argv)
 		value = read_number(argv[i], &error);
 		if (error)
 			return (0);
-		if(is_dup(a, value))
+		if (is_dup(a, value))
 			return (0);
-		stack_push_bottom(a, value);
+		node = create_node(value);
+		if (!node)
+			return (0);
+		stack_push_bottom(a, node);
 		i++;
 	}
 	return (1);
