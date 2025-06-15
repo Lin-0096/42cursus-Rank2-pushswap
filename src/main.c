@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:17:57 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/15 22:39:42 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/15 23:25:40 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,8 @@ int	main(int argc, char **argv)
 		}
 	}
 	print_stack(&a);
-	sa(&a);
+	sort_3(&a);
 	print_stack(&a);
-	pb(&a, &b);
-	print_stack(&a);
-	print_stack(&b);
-	pb(&a, &b);
-	print_stack(&a);
-	print_stack(&b);
-	pb(&a, &b);
-	print_stack(&a);
-	print_stack(&b);
 	free_stack(&a);
 	return (0);
 }

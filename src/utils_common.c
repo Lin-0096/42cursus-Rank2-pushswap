@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 00:09:05 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/15 22:32:16 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/15 23:01:24 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	init_stack(t_stack *stack)
 	stack->bottom = NULL;
 }
 
-//for debug!!
+//for debug!! delete??
 void	print_stack(t_stack *stack)
 {
 	t_node	*current;
@@ -31,7 +31,7 @@ void	print_stack(t_stack *stack)
 		printf("empty stack\n");
 		return ;
 	}
-	//printf("size=%i\n", stack->size);
+	printf("size=%i\n", stack->size);
 	current = stack->top;
 	while (current)
 	{
