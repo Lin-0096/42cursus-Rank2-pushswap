@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 14:52:08 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/13 16:43:53 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/15 22:36:18 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	pa(t_stack *a, t_stack *b)
 {
 	t_node *node;
 
-	if (!a || !b || b->size == 0)
+	if (!b || b->size == 0)
 		return ;
 	node = pop_top(b);
 	if (!node)
@@ -82,7 +82,7 @@ void	pb(t_stack *a, t_stack *b)
 {
 	t_node *node;
 
-	if (!a || !b || b->size == 0)
+	if (!a || a->size == 0)
 		return ;
 	node = pop_top(a);
 	if (!node)

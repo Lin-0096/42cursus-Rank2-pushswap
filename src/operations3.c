@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 16:31:13 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/13 16:43:53 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/15 22:45:49 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	rra(t_stack *a)
 {
 	t_node *node;
 
-	if(!a || a->size == 0)
+	if(!a || a->size <= 1)
 		return ;
 	node = pop_bottom(a);
 	if (!node)
@@ -33,7 +33,7 @@ void	rrb(t_stack *b)
 {
 	t_node *node;
 
-	if(!b || b->size == 0)
+	if(!b || b->size <= 1)
 		return ;
 	node = pop_bottom(b);
 	if (!node)
@@ -48,7 +48,7 @@ void	rrb(t_stack *b)
 
 void	rrr(t_stack *a, t_stack *b)
 {
-	if(!a || !a->size == 0 ||!b || b->size == 0)
+	if(!a || a->size <= 1 || !b || b->size <= 1)
 		return ;
 	rra(a);
 	rrb(b);

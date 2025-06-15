@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 14:52:16 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/13 16:43:53 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/15 22:45:34 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	rb(t_stack *b)
 {
 	t_node *node;
 
-	if (!b || b->size == 0)
+	if (!b || b->size <= 1)
 		return ;
 	node = pop_top(b);
 	if (!node)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   utils_common.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 00:09:05 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/13 11:27:01 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/15 22:32:16 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	print_stack(t_stack *stack)
 		printf("empty stack\n");
 		return ;
 	}
-	printf("size=%i\n", stack->size);
+	//printf("size=%i\n", stack->size);
 	current = stack->top;
 	while (current)
 	{

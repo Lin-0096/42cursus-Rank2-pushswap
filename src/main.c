@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:17:57 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/13 11:37:56 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/15 22:39:42 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ int	main(int argc, char **argv)
 {
 	char	**arr;
 	t_stack	a;
+	t_stack	b;
 
 	init_stack(&a);
+	init_stack(&b);
 	if (argc == 1)
-		return (0);
+		return (1);
 	if (argc == 2)
 	{
 		arr = ft_split(argv[1], ' ');
@@ -39,11 +41,22 @@ int	main(int argc, char **argv)
 		if (!build_stack_from_args(&a, argv + 1))
 		{
 			write(2, "Error\n", 6);
-			free_stack(&a);
+			free_stack(&a); //always free it for safety, and because i check NULL in free, no need worry about free wrong stuff.
 			return (1);
 		}
 	}
 	print_stack(&a);
+	sa(&a);
+	print_stack(&a);
+	pb(&a, &b);
+	print_stack(&a);
+	print_stack(&b);
+	pb(&a, &b);
+	print_stack(&a);
+	print_stack(&b);
+	pb(&a, &b);
+	print_stack(&a);
+	print_stack(&b);
 	free_stack(&a);
 	return (0);
 }
