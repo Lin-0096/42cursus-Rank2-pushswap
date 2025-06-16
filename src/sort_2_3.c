@@ -1,16 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_3_5.c                                         :+:      :+:    :+:   */
+/*   sort_2_3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/16 09:53:52 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/16 10:06:05 by linliu           ###   ########.fr       */
+/*   Created: 2025/06/16 13:45:56 by linliu            #+#    #+#             */
+/*   Updated: 2025/06/16 13:46:38 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_2(t_stack *a)
+{
+
+}
 
 void	sort_3(t_stack *a)
 {
@@ -39,24 +44,4 @@ void	sort_3(t_stack *a)
 		ra(a);
 		sa(a);
 	}
-}
-static t_node	*find_min(t_stack *a)
-{
-	int		min;
-	t_node	*cur;
-
-	cur = a->top;
-	min = cur->data;
-	while(cur)
-	{
-		if(cur->next->data < min)
-			min = cur->next->data;
-		cur = cur->next;
-	}
-	return (min);
-}
-
-void	sort_5(t_stack *a, t_stack *b)
-{
-
 }

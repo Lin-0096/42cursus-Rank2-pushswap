@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:17:57 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/15 23:25:40 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/16 11:22:06 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,14 @@ int	main(int argc, char **argv)
 		}
 	}
 	print_stack(&a);
-	sort_3(&a);
+	//sort_3(&a);
+	//print_stack(&a);
+	t_node *min = find_min(&a);
+	int pos = get_pos(&a, min);
+	rot_to_top(&a, pos);
+	printf("Position of min: %d\n", pos);
+	print_stack(&a);
+	sort_5(&a, &b);
 	print_stack(&a);
 	free_stack(&a);
 	return (0);
