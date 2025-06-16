@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:22:59 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/16 11:29:38 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/16 22:07:50 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,12 @@ void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 
 //sort
+void	sort_2(t_stack *a);
 void	sort_3(t_stack *a);
 t_node	*find_min(t_stack *a);
 int		get_pos(t_stack *a, t_node *node);
 void	rot_to_top(t_stack *a, int pos);
-void	sort_5(t_stack *a, t_stack *b);
+void	sort_4_5(t_stack *a, t_stack *b);
+int		find_insert_pos(t_stack *a, t_node *node);
 
 #endif
