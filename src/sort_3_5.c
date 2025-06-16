@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_3.c                                           :+:      :+:    :+:   */
+/*   sort_3_5.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/15 23:09:30 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/15 23:53:14 by linliu           ###   ########.fr       */
+/*   Created: 2025/06/16 09:53:52 by linliu            #+#    #+#             */
+/*   Updated: 2025/06/16 10:06:05 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,24 @@ void	sort_3(t_stack *a)
 		ra(a);
 		sa(a);
 	}
+}
+static t_node	*find_min(t_stack *a)
+{
+	int		min;
+	t_node	*cur;
+
+	cur = a->top;
+	min = cur->data;
+	while(cur)
+	{
+		if(cur->next->data < min)
+			min = cur->next->data;
+		cur = cur->next;
+	}
+	return (min);
+}
+
+void	sort_5(t_stack *a, t_stack *b)
+{
+
 }
