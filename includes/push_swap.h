@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:22:59 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/17 18:42:01 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/17 21:59:38 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,9 @@ void	sb(t_stack *b);
 void	ss(t_stack *a, t_stack *b);
 void	pa(t_stack *a, t_stack *b);
 void	pb(t_stack *a, t_stack *b);
-void	ra(t_stack *a);
-void	rb(t_stack *b);
+void	rotate(t_stack *stack, char name);
 void	rr(t_stack *a, t_stack *b);
-void	rra(t_stack *a);
-void	rrb(t_stack *b);
+void	rev_rotate(t_stack *stack, char name);
 void	rrr(t_stack *a, t_stack *b);
 
 //sort
@@ -77,7 +75,7 @@ void	sort_2(t_stack *a);
 void	sort_3(t_stack *a);
 t_node	*find_min(t_stack *a);
 int		get_pos(t_stack *a, int value);
-void	rot_to_top(t_stack *stack, int pos);
+void	rot_to_top(t_stack *stack, int pos, char name);
 void	sort_4_5(t_stack *a, t_stack *b);
 void	sort_large(t_stack *a, t_stack *b);
 

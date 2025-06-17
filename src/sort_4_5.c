@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 09:53:52 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/17 18:21:28 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/17 22:00:17 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	get_pos(t_stack *a, int value)
 	}
 	return (-1);
 }
-void	rot_to_top(t_stack *stack, int pos)
+void	rot_to_top(t_stack *stack, int pos, char name)
 {
 	int	i;
 
@@ -57,12 +57,12 @@ void	rot_to_top(t_stack *stack, int pos)
 	if (pos <= stack->size / 2)
 	{
 		while (i++ < pos)
-			ra(stack);
+			rotate(stack, name);
 	}
 	else
 	{
 		while (i++ < stack->size - pos)
-			rra(stack);
+			rev_rotate(stack, name);
 	}
 }
 
@@ -83,7 +83,7 @@ void	sort_4_5(t_stack *a, t_stack *b)
 		pos = get_pos(a, min_node->data);
 		if (pos == -1)
 			return ;
-		rot_to_top(a, pos);
+		rot_to_top(a, pos, 'a');
 		pb(a, b);
 		i++;
 	}

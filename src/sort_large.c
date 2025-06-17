@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 17:32:25 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/17 19:56:32 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/17 22:28:20 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,23 @@ static void	find_target(t_stack *a, t_stack *b, int *targets_val)
 	int		j;
 
 	cur_b = b->top;
-	i = 0;
-	while (i < b->size)
+	i = -1;
+	while (++i < b->size)
 	{
 		cur_a = a->top;
 		target_val = INT_MAX;//put it in while loop
-		j = 0;
-		while (j < a->size)
+		j = -1;
+		while (++j < a->size)
 		{
 			if (cur_a->data > cur_b->data && cur_a->data < target_val)
 				target_val = cur_a->data;
 			cur_a = cur_a->next;
-			j++;
 		}
 		if (target_val == INT_MAX)
 			targets_val[i] = find_min(a)->data;
 		else
 			targets_val[i] = target_val;
 		cur_b = cur_b->next;
-		i++;
 	}
 }
 
@@ -91,14 +89,15 @@ static void	exe_min_cost(t_stack *a, t_stack *b, t_cost_info *cost)
 		}
 		i++;
 	}
-	rot_to_top(a, cost->index_a[best_index]);
-	rot_to_top(b, best_index);
+	rot_to_top(a, cost->index_a[best_index], 'a');
+	rot_to_top(b, best_index, 'b');
 	pa(a, b);
 }
 
 void	sort_large(t_stack *a, t_stack *b)
 {
 	t_cost_info	cost;
+	int			min_pos;
 
 	while (a->size > 3) //pb blindly
 		pb(a, b);
@@ -113,6 +112,10 @@ void	sort_large(t_stack *a, t_stack *b)
 		calculate_costs(a, b, &cost);
 		exe_min_cost(a, b, &cost);
 	}
+	min_pos = get_pos(a, find_min(a)->data);
+	if (min_pos == -1)
+		exit_error(a ,b);
+	rot_to_top(a, min_pos, 'a');
 	free(cost.cost_a);
 	free(cost.cost_b);
 	free(cost.index_a);

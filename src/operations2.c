@@ -6,43 +6,62 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 14:52:16 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/15 22:45:34 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/17 22:02:55 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stack *a)
+void	rotate(t_stack *stack, char name)
 {
 	t_node *node;
 
-	if (!a || a->size <= 1)
+	if (!stack || stack->size <= 1)
 		return ;
-	node = pop_top(a);
+	node = pop_top(stack);
 	if (!node)
 		return ;
-	stack_push_bottom(a, node);
-	write(1, "ra\n", 3);
+	stack_push_bottom(stack, node);
+	if (name == 'a')
+		write(1, "ra\n", 3);
+	else if (name == 'b')
+		write(1, "rb\n", 3);
 }
 
-void	rb(t_stack *b)
+void	rr(t_stack *sa, t_stack *sb)
 {
-	t_node *node;
-
-	if (!b || b->size <= 1)
+	if (!sa || !sb || sa->size <= 1 || sb->size <= 1)
 		return ;
-	node = pop_top(b);
-	if (!node)
-		return ;
-	stack_push_bottom(b, node);
-	write(1, "rb\n", 3);
-}
-
-void	rr(t_stack *a, t_stack *b)
-{
-	if (!a || !b || a->size <= 1 || b->size <= 1)
-		return ;
-	ra(a);
-	rb(b);
+	rotate(sa, 'c');
+	rotate(sb, 'c');
 	write(1, "rr\n", 3);
+}
+
+void	rev_rotate(t_stack *stack, char name)
+{
+	t_node *node;
+
+	if(!stack || stack->size <= 1)
+		return ;
+	node = pop_bottom(stack);
+	if (!node)
+		return ;
+	if(!stack_push_top(stack, node))
+	{
+		free(node);
+		return ;
+	}
+	if (name == 'a')
+		write(1, "rra\n", 4);
+	else if (name == 'b')
+		write(1, "rrb\n", 4);
+}
+
+void	rrr(t_stack *a, t_stack *b)
+{
+	if(!a || a->size <= 1 || !b || b->size <= 1)
+		return ;
+	rev_rotate(a, 'c');
+	rev_rotate(b, 'c');
+	write(1, "rrr\n", 4);
 }

@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:17:57 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/17 19:57:03 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/17 22:19:02 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	main(int argc, char **argv)
 {
 	char	**arr;
-	int		min_pos;
 	t_stack	a;
 	t_stack	b;
 
@@ -51,6 +50,8 @@ int	main(int argc, char **argv)
 			return (1);
 		}
 	}
+	if (is_sorted(&a))
+		return (0);
 	if (a.size == 2)
 		sort_2(&a);
 	else if (a.size == 3)
@@ -59,14 +60,6 @@ int	main(int argc, char **argv)
 		sort_4_5(&a, &b);
 	else
 		sort_large(&a, &b);
-	while (!is_sorted(&a))
-	{
-		min_pos = get_pos(&a, find_min(&a)->data);
-		if (min_pos == -1)
-			exit_error(&a ,&b);
-		rot_to_top(&a, min_pos);
-	}
-	//print_stack(&a);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 13:45:56 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/17 15:22:46 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/17 21:57:57 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@ void	sort_3(t_stack *a)
 	else if (a1 < a2 && a2 > a3 && a1 < a3)//132
 	{
 		sa(a);
-		ra(a);
+		rotate(a, 'a');
 	}
 	else if (a1 > a2 && a2 < a3 && a1 < a3)//213
 		sa(a);
 	else if (a1 < a2 && a2 > a3 && a1 > a3)//231
-		rra(a);
+		rev_rotate(a, 'a');
 	else if (a1 > a2 && a2 < a3 && a1 > a3)//312
-		ra(a);
+		rotate(a, 'a');
 	else if (a1 > a2 && a2 > a3 && a1 > a3)//321
 	{
-		ra(a);
+		rotate(a, 'a');
 		sa(a);
 	}
 }
