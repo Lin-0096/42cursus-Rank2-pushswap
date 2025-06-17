@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:22:59 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/16 22:07:50 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/17 18:42:01 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ typedef struct s_stack
 	t_node	*bottom;
 }	t_stack;
 
+typedef struct s_cost_info
+{
+	int	*cost_a;
+	int	*cost_b;
+	int	*index_a;
+}	t_cost_info;
+
 //push new node to stack
 t_node	*create_node(int value);
 int		stack_push_bottom(t_stack *stack, t_node *new);
@@ -46,6 +53,8 @@ t_node	*pop_top(t_stack *stack);
 void	print_stack(t_stack *stack); //delete?
 void	free_stack(t_stack *stack);
 void	init_stack(t_stack *stack);
+int		is_sorted(t_stack *stack);
+void	exit_error(t_stack *a, t_stack *b);
 
 //parse
 int		build_stack_from_args(t_stack *a, char **argv);
@@ -67,9 +76,9 @@ void	rrr(t_stack *a, t_stack *b);
 void	sort_2(t_stack *a);
 void	sort_3(t_stack *a);
 t_node	*find_min(t_stack *a);
-int		get_pos(t_stack *a, t_node *node);
-void	rot_to_top(t_stack *a, int pos);
+int		get_pos(t_stack *a, int value);
+void	rot_to_top(t_stack *stack, int pos);
 void	sort_4_5(t_stack *a, t_stack *b);
-int		find_insert_pos(t_stack *a, t_node *node);
+void	sort_large(t_stack *a, t_stack *b);
 
 #endif

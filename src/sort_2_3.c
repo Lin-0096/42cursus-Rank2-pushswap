@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 13:45:56 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/16 14:56:54 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/17 15:22:46 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sort_2(t_stack *a)
 {
-	if (!a || a->size != 2)
+	if (!a || a->size == 0)
 		return ;
 	if (a->top->data > a->bottom->data)
 		sa(a);

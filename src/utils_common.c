@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 00:09:05 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/15 23:01:24 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/17 11:00:29 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,20 +60,26 @@ void	free_stack(t_stack *stack)
 	stack->size = 0;
 }
 
-/*int	main(void)
+void	exit_error(t_stack *a, t_stack *b)
 {
-	t_stack a;
-	init_stack(&a);
+	free_stack(a);
+	free_stack(b);
+	write(2, "Error\n", 6);
+	exit (EXIT_FAILURE);
+}
 
-	stack_push_top(&a, 2);
-	stack_push_bottom(&a, 3);
-	print_stack(&a);
-	t_node *n1 = pop_top(&a);
-	t_node *n2 = pop_bottom(&a);
+int	is_sorted(t_stack *stack)
+{
+	t_node *cur;
 
-	printf("n1: %i\n", n1->data);
-	printf("n2: %i\n", n2->data);
-	free(n1);
-	free(n2);
-	free_stack(&a);
-}*/
+	if (!stack || stack->size == 0)
+		return (1);
+	cur = stack->top;
+	while (cur && cur->next) //if don't check cur->next, the if would cause segfault
+	{
+		if (cur->data > cur->next->data)
+			return (0);
+		cur = cur->next;
+	}
+	return (1);
+}
