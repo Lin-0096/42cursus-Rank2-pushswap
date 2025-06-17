@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:17:57 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/17 22:19:02 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/17 22:51:02 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,21 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		if (argv[1][0] == '\0' || argv[1][0] == ' ')
-		{
-			write(2, "Error\n", 6);
-			return (1);
-		}
+			exit_error(&a, &b);
 		arr = ft_split(argv[1], ' ');
 		if (!arr)
 			return (1);
 		if (!build_stack_from_args(&a, arr))
 		{
-			write(2, "Error\n", 6);
 			ft_free_arr(arr);
-			free_stack(&a);
-			return (1);
+			exit_error(&a, &b);
 		}
 		ft_free_arr(arr);
 	}
 	else
 	{
 		if (!build_stack_from_args(&a, argv + 1))
-		{
-			write(2, "Error\n", 6);
-			free_stack(&a); //always free it for safety, and because i check NULL in free, no need worry about free wrong stuff.
-			return (1);
-		}
+			exit_error(&a, &b);
 	}
 	if (is_sorted(&a))
 		return (0);
