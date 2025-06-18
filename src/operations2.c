@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 14:52:16 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/17 22:02:55 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/18 11:20:40 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void	rev_rotate(t_stack *stack, char name)
 {
 	t_node *node;
 
-	if(!stack || stack->size <= 1)
+	if (!stack || stack->size <= 1)
 		return ;
 	node = pop_bottom(stack);
 	if (!node)
 		return ;
-	if(!stack_push_top(stack, node))
+	if (!stack_push_top(stack, node))
 	{
 		free(node);
 		return ;
@@ -59,7 +59,7 @@ void	rev_rotate(t_stack *stack, char name)
 
 void	rrr(t_stack *a, t_stack *b)
 {
-	if(!a || a->size <= 1 || !b || b->size <= 1)
+	if (!a || a->size <= 1 || !b || b->size <= 1)
 		return ;
 	rev_rotate(a, 'c');
 	rev_rotate(b, 'c');

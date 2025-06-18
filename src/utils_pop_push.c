@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_push.c                                       :+:      :+:    :+:   */
+/*   utils_pop_push.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/12 10:36:20 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/13 14:45:57 by linliu           ###   ########.fr       */
+/*   Created: 2025/06/12 13:28:55 by linliu            #+#    #+#             */
+/*   Updated: 2025/06/18 11:57:57 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,48 @@ int	stack_push_top(t_stack *stack, t_node *new)
 	}
 	stack->size++;
 	return (1);
+}
+
+t_node	*pop_top(t_stack *stack)
+{
+	t_node	*tmp;
+
+	if (!stack || stack->size == 0)
+		return (NULL);
+	tmp = stack->top;
+	if (stack->size == 1)
+	{
+		stack->top = NULL;
+		stack->bottom = NULL;
+	}
+	else
+	{
+		stack->top = stack->top->next;
+		stack->top->prev = NULL;
+	}
+	tmp->next = NULL;
+	stack->size--;
+	return (tmp);
+}
+
+t_node	*pop_bottom(t_stack *stack)
+{
+	t_node	*tmp;
+
+	if (!stack || stack->size == 0)
+		return (NULL);
+	tmp = stack->bottom;
+	if (stack->size == 1)
+	{
+		stack->top = NULL;
+		stack->bottom = NULL;
+	}
+	else
+	{
+		stack->bottom = stack->bottom->prev;
+		stack->bottom->next = NULL;
+	}
+	tmp->prev = NULL;
+	stack->size--;
+	return (tmp);
 }

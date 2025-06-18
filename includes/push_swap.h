@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:22:59 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/17 21:59:38 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/18 11:58:50 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,10 @@ typedef struct s_cost_info
 	int	*index_a;
 }	t_cost_info;
 
-//push new node to stack
+//pop new node from and push it to stack
 t_node	*create_node(int value);
 int		stack_push_bottom(t_stack *stack, t_node *new);
 int		stack_push_top(t_stack *stack, t_node *new);
-
-//get node from stack
 t_node	*pop_bottom(t_stack *stack);
 t_node	*pop_top(t_stack *stack);
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_2_3.c                                         :+:      :+:    :+:   */
+/*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 13:45:56 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/17 21:57:57 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/18 13:04:06 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,30 @@ void	sort_3(t_stack *a)
 		rotate(a, 'a');
 		sa(a);
 	}
+}
+
+void	sort_4_5(t_stack *a, t_stack *b)
+{
+	t_node	*min_node;
+	int		pos;
+	int		i;
+	int		count;
+
+	count = a->size - 3;
+	i = 0;
+	if (!a || a->size == 0)
+		return ;
+	while (i < count)
+	{
+		min_node = find_min(a);
+		pos = get_pos(a, min_node->data);
+		if (pos == -1)
+			return ;
+		rot_to_top(a, pos, 'a');
+		pb(a, b);
+		i++;
+	}
+	sort_3(a);
+	pa(a, b);
+	pa(a, b);
 }

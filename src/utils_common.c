@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 00:09:05 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/17 11:00:29 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/18 12:01:58 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,6 @@ void	init_stack(t_stack *stack)
 	stack->size = 0;
 	stack->top = NULL;
 	stack->bottom = NULL;
-}
-
-//for debug!! delete??
-void	print_stack(t_stack *stack)
-{
-	t_node	*current;
-
-	if (!stack || stack->size == 0)
-	{
-		printf("empty stack\n");
-		return ;
-	}
-	printf("size=%i\n", stack->size);
-	current = stack->top;
-	while (current)
-	{
-		printf("->%d", current->data);
-		current = current->next;
-	}
-	printf("\n");
 }
 
 void	free_stack(t_stack *stack)
@@ -82,4 +62,24 @@ int	is_sorted(t_stack *stack)
 		cur = cur->next;
 	}
 	return (1);
+}
+
+//for debug!! delete??
+void	print_stack(t_stack *stack)
+{
+	t_node	*current;
+
+	if (!stack || stack->size == 0)
+	{
+		printf("empty stack\n");
+		return ;
+	}
+	printf("size=%i\n", stack->size);
+	current = stack->top;
+	while (current)
+	{
+		printf("->%d", current->data);
+		current = current->next;
+	}
+	printf("\n");
 }

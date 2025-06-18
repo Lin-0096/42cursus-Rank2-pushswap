@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 09:53:52 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/17 22:00:17 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/18 13:03:39 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,28 +66,4 @@ void	rot_to_top(t_stack *stack, int pos, char name)
 	}
 }
 
-void	sort_4_5(t_stack *a, t_stack *b)
-{
-	t_node	*min_node;
-	int		pos;
-	int		i;
-	int		count;
 
-	count = a->size - 3;
-	i = 0;
-	if(!a || a->size == 0)
-		return ;
-	while (i < count)
-	{
-		min_node = find_min(a);
-		pos = get_pos(a, min_node->data);
-		if (pos == -1)
-			return ;
-		rot_to_top(a, pos, 'a');
-		pb(a, b);
-		i++;
-	}
-	sort_3(a);
-	pa(a, b);
-	pa(a, b);
-}

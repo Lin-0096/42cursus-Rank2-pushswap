@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 14:52:08 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/15 22:36:18 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/18 11:20:26 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	sa(t_stack *a)
 	second = a->top->next;
 
 	first->next = second->next;
-	if(second->next) // if stack-size > 2
+	if (second->next) // if stack-size > 2
 		second->next->prev = first;
 	second->prev = first->prev;
 	second->next = first;
@@ -43,7 +43,7 @@ void	sb(t_stack *b)
 	second = b->top->next;
 
 	first->next = second->next;
-	if(second->next)
+	if (second->next)
 		second->next->prev = first;
 	second->prev = first->prev;
 	second->next = first;
