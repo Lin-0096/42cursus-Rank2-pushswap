@@ -74,7 +74,5 @@ void	sort_large(t_stack *a, t_stack *b);
 t_node	*find_min(t_stack *a);
 int		get_pos(t_stack *a, int value);
 void	rot_to_top(t_stack *stack, int pos, char name);
- int	*copy_stack_to_array(t_stack *a);
-void	sort_arr(int *arr, int size);
 
 #endif
