@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*   sort_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/16 09:53:52 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/18 14:39:08 by linliu           ###   ########.fr       */
+/*   Created: 2025/06/18 23:10:42 by linliu            #+#    #+#             */
+/*   Updated: 2025/06/18 23:18:02 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,14 @@ int	get_pos(t_stack *a, int value)
 	cur = a->top;
 	while (cur)
 	{
-		if (cur->data == value) //find that exact node in the stack,not just a node with the same value.
+		if (cur->data == value)
 			return (pos);
 		cur = cur->next;
 		pos++;
 	}
 	return (-1);
 }
+
 void	rot_to_top(t_stack *stack, int pos, char name)
 {
 	int	i;
@@ -63,5 +64,40 @@ void	rot_to_top(t_stack *stack, int pos, char name)
 	{
 		while (i++ < stack->size - pos)
 			rev_rotate(stack, name);
+	}
+}
+
+void	set_cost_a_info(t_stack *a, t_cost_info *cost , int i, int val)
+{
+	cost->index_a[i] = get_pos(a, val);
+	if (cost->index_a[i] == -1)
+	{
+		free_stack(a);
+		write(2, "Error\n", 6);
+		exit (EXIT_FAILURE);
+	}
+	if (cost->index_a[i] <= a->size / 2)
+	{
+		cost->cost_a[i] = cost->index_a[i];
+		cost->dir_a[i] = 1;
+	}
+	else
+	{
+		cost->cost_a[i] = a->size - cost->index_a[i];
+		cost->dir_a[i] = -1;
+	}
+}
+
+void	set_cost_b_info(t_stack *b, t_cost_info *cost , int i)
+{
+	if (i <= b->size / 2)
+	{
+		cost->cost_b[i] = i;
+		cost->dir_b[i] = 1;
+	}
+	else
+	{
+		cost->cost_b[i] = b->size - i;
+		cost->dir_b[i] = -1;
 	}
 }

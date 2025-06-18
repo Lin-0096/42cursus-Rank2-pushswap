@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:22:59 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/18 22:26:37 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/18 23:23:51 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-# include <stdio.h> //for debug ,delete!!
 # include "../libft/libft.h"
 
 typedef struct s_node
@@ -48,8 +47,7 @@ int		stack_push_bottom(t_stack *stack, t_node *new);
 int		stack_push_top(t_stack *stack, t_node *new);
 t_node	*pop_bottom(t_stack *stack);
 t_node	*pop_top(t_stack *stack);
-//stack utils
-void	print_stack(t_stack *stack); //delete?
+//common utils
 void	free_stack(t_stack *stack);
 void	init_stack(t_stack *stack);
 int		is_sorted(t_stack *stack);
@@ -76,9 +74,12 @@ void	sort_large(t_stack *a, t_stack *b);
 t_node	*find_min(t_stack *a);
 int		get_pos(t_stack *a, int value);
 void	rot_to_top(t_stack *stack, int pos, char name);
-//sort large utils
+void	set_cost_a_info(t_stack *a, t_cost_info *cost , int i, int val);
+void	set_cost_b_info(t_stack *b, t_cost_info *cost , int i);
+//sort utils
 void	do_rotations(t_stack *a, t_stack *b, int cost_a, int cost_b);
 void	do_rev_rotations(t_stack *a, t_stack *b, int cost_a, int cost_b);
 void	free_cost_info(t_cost_info *cost);
+int		init_cost_info(t_cost_info *cost, int size);
 
 #endif

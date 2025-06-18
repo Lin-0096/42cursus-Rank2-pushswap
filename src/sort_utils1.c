@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_large_utils.c                                 :+:      :+:    :+:   */
+/*   sort_utils1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 21:58:23 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/18 22:26:16 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/18 23:16:46 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,18 @@ void	do_rev_rotations(t_stack *a, t_stack *b, int cost_a, int cost_b)
 		rev_rotate(b, 'b');
 		cost_b--;
 	}
+}
+
+int	init_cost_info(t_cost_info *cost, int size)
+{
+	cost->cost_a = malloc(sizeof(int) * size);
+	cost->cost_b = malloc(sizeof(int) * size);
+	cost->index_a = malloc(sizeof(int) * size);
+	cost->dir_a = malloc(sizeof(int) * size);
+	cost->dir_b = malloc(sizeof(int) * size);
+	if (!cost->cost_a || !cost->cost_b || !cost->index_a || !cost->dir_a || !cost->dir_b)
+		return (0);
+	return (1);
 }
 
 void	free_cost_info(t_cost_info *cost)

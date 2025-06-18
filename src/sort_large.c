@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 17:32:25 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/18 22:36:43 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/18 23:12:26 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,29 +53,8 @@ static void	calculate_costs(t_stack *a, t_stack *b, t_cost_info *cost)
 	i = 0;
 	while (i < b->size)
 	{
-		cost->index_a[i] = get_pos(a, targets_val[i]);
-		if (cost->index_a[i] == -1)
-			exit_error(a, b);
-		if (cost->index_a[i] <= a->size / 2)
-		{
-			cost->cost_a[i] = cost->index_a[i];
-			cost->dir_a[i] = 1;
-		}
-		else
-		{
-			cost->cost_a[i] = a->size - cost->index_a[i];
-			cost->dir_a[i] = -1;
-		}
-		if (i <= b->size / 2)
-		{
-			cost->cost_b[i] = i;
-			cost->dir_b[i] = 1;
-		}
-		else
-		{
-			cost->cost_b[i] = b->size - i;
-			cost->dir_b[i] = -1;
-		}
+		set_cost_a_info(a, cost , i, targets_val[i]);
+		set_cost_b_info(b, cost , i);
 		i++;
 	}
 	free(targets_val);
@@ -126,13 +105,8 @@ void	sort_large(t_stack *a, t_stack *b)
 	while (a->size > 3)
 		pb(a, b);
 	sort_3(a);
-	cost.cost_a = malloc(sizeof(int) * b->size);
-	cost.cost_b = malloc(sizeof(int) * b->size);
-	cost.index_a = malloc(sizeof(int) * b->size);
-	cost.dir_a = malloc(sizeof(int) * b->size);
-	cost.dir_b = malloc(sizeof(int) * b->size);
-	if (!cost.cost_a || !cost.cost_b || !cost.index_a || !cost.dir_a || !cost.cost_b)
-		exit_error(a ,b);
+	if (!init_cost_info(&cost, b->size))
+		exit_error(a, b);
 	while (b->size > 0)
 	{
 		calculate_costs(a, b, &cost);
