@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:22:59 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/18 11:58:50 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/18 14:02:00 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,14 @@ int		stack_push_bottom(t_stack *stack, t_node *new);
 int		stack_push_top(t_stack *stack, t_node *new);
 t_node	*pop_bottom(t_stack *stack);
 t_node	*pop_top(t_stack *stack);
-
 //stack utils
 void	print_stack(t_stack *stack); //delete?
 void	free_stack(t_stack *stack);
 void	init_stack(t_stack *stack);
 int		is_sorted(t_stack *stack);
 void	exit_error(t_stack *a, t_stack *b);
-
 //parse
 int		build_stack_from_args(t_stack *a, char **argv);
-
 //op
 void	sa(t_stack *a);
 void	sb(t_stack *b);
@@ -67,14 +64,17 @@ void	rotate(t_stack *stack, char name);
 void	rr(t_stack *a, t_stack *b);
 void	rev_rotate(t_stack *stack, char name);
 void	rrr(t_stack *a, t_stack *b);
-
-//sort
+//sort small
 void	sort_2(t_stack *a);
 void	sort_3(t_stack *a);
+void	sort_4_5(t_stack *a, t_stack *b);
+//sort large
+void	sort_large(t_stack *a, t_stack *b);
+//sort utils
 t_node	*find_min(t_stack *a);
 int		get_pos(t_stack *a, int value);
 void	rot_to_top(t_stack *stack, int pos, char name);
-void	sort_4_5(t_stack *a, t_stack *b);
-void	sort_large(t_stack *a, t_stack *b);
+ int	*copy_stack_to_array(t_stack *a);
+void	sort_arr(int *arr, int size);
 
 #endif

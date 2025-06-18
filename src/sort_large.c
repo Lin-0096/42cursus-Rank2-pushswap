@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 17:32:25 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/17 22:28:20 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/18 14:38:42 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	sort_large(t_stack *a, t_stack *b)
 	t_cost_info	cost;
 	int			min_pos;
 
-	while (a->size > 3) //pb blindly
+	while (a->size > 3)
 		pb(a, b);
 	sort_3(a);
 	cost.cost_a = malloc(sizeof(int) * b->size);
