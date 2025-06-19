@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 13:45:56 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/18 13:04:06 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/19 14:30:33 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	sort_2(t_stack *a)
 	if (!a || a->size == 0)
 		return ;
 	if (a->top->data > a->bottom->data)
-		sa(a);
+		sa(a, 1);
 }
 
 void	sort_3(t_stack *a)
@@ -33,19 +33,19 @@ void	sort_3(t_stack *a)
 		return ;
 	else if (a1 < a2 && a2 > a3 && a1 < a3)//132
 	{
-		sa(a);
-		rotate(a, 'a');
+		sa(a, 1);
+		rotate(a, 'a', 1);
 	}
 	else if (a1 > a2 && a2 < a3 && a1 < a3)//213
-		sa(a);
+		sa(a, 1);
 	else if (a1 < a2 && a2 > a3 && a1 > a3)//231
-		rev_rotate(a, 'a');
+		rev_rotate(a, 'a', 1);
 	else if (a1 > a2 && a2 < a3 && a1 > a3)//312
-		rotate(a, 'a');
+		rotate(a, 'a', 1);
 	else if (a1 > a2 && a2 > a3 && a1 > a3)//321
 	{
-		rotate(a, 'a');
-		sa(a);
+		rotate(a, 'a', 1);
+		sa(a, 1);
 	}
 }
 
@@ -67,10 +67,10 @@ void	sort_4_5(t_stack *a, t_stack *b)
 		if (pos == -1)
 			return ;
 		rot_to_top(a, pos, 'a');
-		pb(a, b);
+		pb(a, b, 1);
 		i++;
 	}
 	sort_3(a);
-	pa(a, b);
-	pa(a, b);
+	pa(a, b, 1);
+	pa(a, b, 1);
 }

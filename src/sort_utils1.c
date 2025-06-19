@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 21:58:23 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/18 23:16:46 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/19 14:31:14 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ void	do_rotations(t_stack *a, t_stack *b, int cost_a, int cost_b)
 {
 	while (cost_a > 0 && cost_b >0)
 	{
-		rr(a, b);
+		rr(a, b, 1);
 		cost_a--;
 		cost_b--;
 	}
 	while (cost_a > 0)
 	{
-		rotate(a, 'a');
+		rotate(a, 'a', 1);
 		cost_a--;
 	}
 	while (cost_b > 0)
 	{
-		rotate(b, 'b');
+		rotate(b, 'b', 1);
 		cost_b--;
 	}
 }
@@ -36,18 +36,18 @@ void	do_rev_rotations(t_stack *a, t_stack *b, int cost_a, int cost_b)
 {
 	while (cost_a > 0 && cost_b >0)
 	{
-		rrr(a, b);
+		rrr(a, b, 1);
 		cost_a--;
 		cost_b--;
 	}
 	while (cost_a > 0)
 	{
-		rev_rotate(a, 'a');
+		rev_rotate(a, 'a', 1);
 		cost_a--;
 	}
 	while (cost_b > 0)
 	{
-		rev_rotate(b, 'b');
+		rev_rotate(b, 'b', 1);
 		cost_b--;
 	}
 }

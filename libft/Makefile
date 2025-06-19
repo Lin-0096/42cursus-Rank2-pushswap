@@ -39,6 +39,8 @@ $(NAME): $(OBJECTS)
 	@ar rcs $(NAME) $(OBJECTS)
 
 #$(MKDIR) $(dir $@) ==mkdir -p obj/ft_printf/
+#dir list directory contents
+#-p make parent directories as needed
 $(OBJ_DIR)/%.o: %.c
 	@$(MKDIR) $(dir $@)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
