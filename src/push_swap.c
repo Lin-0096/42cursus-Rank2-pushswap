@@ -48,7 +48,10 @@ int	main(int argc, char **argv)
 		return (0);
 	read_from_argv(argc, argv, &a, &b);
 	if (is_sorted(&a))
+	{
+		free_stack(&a);
 		return (0);
+	}
 	if (a.size == 2)
 		sort_2(&a);
 	else if (a.size == 3)
