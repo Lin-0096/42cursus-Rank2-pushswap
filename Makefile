@@ -19,7 +19,7 @@ BONUS_OBJS := $(BONUS_SRCS:.c=.o)
 
 all: $(LIBFT) $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(LIBFT) $(OBJS)
 		$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 bonus: $(LIBFT) $(BONUS_NAME)
