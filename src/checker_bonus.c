@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 static void	read_from_argv(int argc, char **argv, t_stack *a, t_stack *b)
 {
