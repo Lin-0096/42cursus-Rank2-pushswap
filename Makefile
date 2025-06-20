@@ -10,7 +10,7 @@ LIBFT_DIR := libft
 LIBFT  := $(LIBFT_DIR)/libft.a
 
 INCLUDES := -I$(INC_DIR) -I$(LIBFT_DIR)
-SRCS := $(filter-out $(SRC_DIR)/checker.c, $(wildcard $(SRC_DIR)/*.c))
+SRCS := $(filter-out $(SRC_DIR)/checker_bonus.c, $(wildcard $(SRC_DIR)/*.c))
 OBJS := $(SRCS:.c=.o)
 BONUS_SRCS := $(filter-out $(SRC_DIR)/push_swap.c, $(wildcard $(SRC_DIR)/*.c))
 BONUS_OBJS := $(BONUS_SRCS:.c=.o)
