@@ -24,7 +24,7 @@ $(NAME): $(LIBFT) $(OBJS)
 
 bonus: $(LIBFT) $(BONUS_NAME)
 
-$(BONUS_NAME): $(BONUS_OBJS)
+$(BONUS_NAME): $(LIBFT) $(BONUS_OBJS)
 		$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) -o $(BONUS_NAME)
 
 $(LIBFT):
