@@ -10,12 +10,19 @@ LIBFT_DIR := libft
 LIBFT  := $(LIBFT_DIR)/libft.a
 
 INCLUDES := -I$(INC_DIR) -I$(LIBFT_DIR)
-SRCS := $(filter-out $(SRC_DIR)/checker_bonus.c, $(wildcard $(SRC_DIR)/*.c))
+COMMON_SRCS := src/common_utils.c \
+		src/operations1.c \
+		src/operations2.c \
+		src/parse.c \
+		src/pop_push.c \
+		src/sort_small.c \
+		src/sort_large.c \
+		src/sort_utils1.c \
+		src/sort_utils2.c
+SRCS := src/push_swap.c $(COMMON_SRCS)
 OBJS := $(SRCS:.c=.o)
-BONUS_SRCS := $(filter-out $(SRC_DIR)/push_swap.c, $(wildcard $(SRC_DIR)/*.c))
+BONUS_SRCS := src/checker_bonus.c $(COMMON_SRCS)
 BONUS_OBJS := $(BONUS_SRCS:.c=.o)
-
-
 
 all: $(LIBFT) $(NAME)
 
@@ -42,6 +49,5 @@ fclean: clean
 	@ make fclean -C $(LIBFT_DIR)
 
 re: fclean all
-
 
 .PHONY: all clean fclean re bonus
