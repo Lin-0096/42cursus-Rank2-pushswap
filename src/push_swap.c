@@ -18,7 +18,7 @@ static void	read_from_argv(int argc, char **argv, t_stack *a, t_stack *b)
 
 	if (argc == 2)
 	{
-		if (argv[1][0] == '\0' || argv[1][0] == ' ')
+		if (argv[1][0] == '\0')
 			exit_error(a, b);
 		arr = ft_split(argv[1], ' ');
 		if (!arr)
