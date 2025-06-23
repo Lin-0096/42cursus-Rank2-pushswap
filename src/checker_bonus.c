@@ -80,6 +80,7 @@ int	main(int argc, char **argv)
 	while (next_line)
 	{
 		do_operations(&a, &b, next_line);
+		free(next_line);
 		next_line = get_next_line(STDIN_FILENO);
 	}
 	if (is_sorted(&a) && b.size == 0)
