@@ -62,7 +62,10 @@ static void	do_operations(t_stack *a, t_stack *b, char *str)
 	else if (!ft_strncmp(str, "rrr\n", 4))
 		rrr(a, b, 0);
 	else
+	{
+		free(str);
 		exit_error(a, b);
+	}
 }
 
 int	main(int argc, char **argv)
