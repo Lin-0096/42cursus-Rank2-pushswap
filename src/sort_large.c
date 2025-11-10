@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 17:32:25 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/18 23:12:26 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/19 14:38:52 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ static void	exe_min_cost(t_stack *a, t_stack *b, t_cost_info *cost)
 		i++;
 	}
 	exe_rotations(a, b, cost, best_index);
-	pa(a, b);
+	pa(a, b, 1);
 }
 
 void	sort_large(t_stack *a, t_stack *b)
@@ -103,7 +103,7 @@ void	sort_large(t_stack *a, t_stack *b)
 	int			min_pos;
 
 	while (a->size > 3)
-		pb(a, b);
+		pb(a, b, 1);
 	sort_3(a);
 	if (!init_cost_info(&cost, b->size))
 		exit_error(a, b);

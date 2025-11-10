@@ -6,15 +6,13 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:22:59 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/18 23:23:51 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/19 14:29:55 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdlib.h>
-# include <unistd.h>
 # include <limits.h>
 # include "../libft/libft.h"
 
@@ -55,15 +53,15 @@ void	exit_error(t_stack *a, t_stack *b);
 //parse
 int		build_stack_from_args(t_stack *a, char **argv);
 //op
-void	sa(t_stack *a);
-void	sb(t_stack *b);
-void	ss(t_stack *a, t_stack *b);
-void	pa(t_stack *a, t_stack *b);
-void	pb(t_stack *a, t_stack *b);
-void	rotate(t_stack *stack, char name);
-void	rr(t_stack *a, t_stack *b);
-void	rev_rotate(t_stack *stack, char name);
-void	rrr(t_stack *a, t_stack *b);
+void	sa(t_stack *a, int checker);
+void	sb(t_stack *b, int checker);
+void	ss(t_stack *a, t_stack *b, int checker);
+void	pa(t_stack *a, t_stack *b, int checker);
+void	pb(t_stack *a, t_stack *b, int checker);
+void	rotate(t_stack *stack, char name, int checker);
+void	rr(t_stack *a, t_stack *b, int checker);
+void	rev_rotate(t_stack *stack, char name, int checker);
+void	rrr(t_stack *a, t_stack *b, int checker);
 //sort small
 void	sort_2(t_stack *a);
 void	sort_3(t_stack *a);

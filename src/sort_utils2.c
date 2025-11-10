@@ -6,7 +6,7 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 23:10:42 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/18 23:18:02 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/19 14:31:42 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ void	rot_to_top(t_stack *stack, int pos, char name)
 	if (pos <= stack->size / 2)
 	{
 		while (i++ < pos)
-			rotate(stack, name);
+			rotate(stack, name, 1);
 	}
 	else
 	{
 		while (i++ < stack->size - pos)
-			rev_rotate(stack, name);
+			rev_rotate(stack, name, 1);
 	}
 }
 

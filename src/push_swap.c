@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:17:57 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/18 14:33:51 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/19 13:32:55 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	read_from_argv(int argc, char **argv, t_stack *a, t_stack *b)
 
 	if (argc == 2)
 	{
-		if (argv[1][0] == '\0' || argv[1][0] == ' ')
+		if (argv[1][0] == '\0')
 			exit_error(a, b);
 		arr = ft_split(argv[1], ' ');
 		if (!arr)
@@ -48,7 +48,10 @@ int	main(int argc, char **argv)
 		return (0);
 	read_from_argv(argc, argv, &a, &b);
 	if (is_sorted(&a))
+	{
+		free_stack(&a);
 		return (0);
+	}
 	if (a.size == 2)
 		sort_2(&a);
 	else if (a.size == 3)

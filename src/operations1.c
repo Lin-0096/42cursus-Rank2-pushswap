@@ -6,13 +6,13 @@
 /*   By: linliu <linliu@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 14:52:08 by linliu            #+#    #+#             */
-/*   Updated: 2025/06/18 11:20:26 by linliu           ###   ########.fr       */
+/*   Updated: 2025/06/19 14:38:06 by linliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *a)
+void	sa(t_stack *a, int checker)
 {
 	t_node	*first;
 	t_node	*second;
@@ -29,10 +29,11 @@ void	sa(t_stack *a)
 	second->next = first;
 	first->prev = second;
 	a->top = second;
-	write(1, "sa\n", 3);
+	if (checker == 1)
+		write(1, "sa\n", 3);
 }
 
-void	sb(t_stack *b)
+void	sb(t_stack *b, int checker)
 {
 	t_node	*first;
 	t_node	*second;
@@ -49,19 +50,21 @@ void	sb(t_stack *b)
 	second->next = first;
 	first->prev = second;
 	b->top = second;
-	write(1, "sb\n", 3);
+	if (checker == 1)
+		write(1, "sb\n", 3);
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b, int checker)
 {
 	if (!a || !b || a->size < 2 || b->size < 2)
 		return ;
-	sa(a);
-	sa(b);
-	write(1, "ss\n", 3);
+	sa(a, 0);
+	sb(b, 0);
+	if (checker == 1)
+		write(1, "ss\n", 3);
 }
 
-void	pa(t_stack *a, t_stack *b)
+void	pa(t_stack *a, t_stack *b, int checker)
 {
 	t_node *node;
 
@@ -75,10 +78,11 @@ void	pa(t_stack *a, t_stack *b)
 		free(node);
 		return ;
 	}
-	write(1, "pa\n", 3);
+	if (checker == 1)
+		write(1, "pa\n", 3);
 }
 
-void	pb(t_stack *a, t_stack *b)
+void	pb(t_stack *a, t_stack *b, int checker)
 {
 	t_node *node;
 
@@ -92,5 +96,6 @@ void	pb(t_stack *a, t_stack *b)
 		free(node);
 		return ;
 	}
-	write(1, "pb\n", 3);
+	if (checker == 1)
+		write(1, "pb\n", 3);
 }
